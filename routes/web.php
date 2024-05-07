@@ -24,6 +24,7 @@ Route::middleware([role::class])->group(function () {
         'controller' => PostController::class,
     ], function () {
         Route::any('/', 'post')->name('post');
+        Route::any('/edit', 'editPost')->name('editPost');
     });
 });
 
@@ -33,5 +34,6 @@ Route::middleware([role::class])->group(function(){
         'controller' => AccountController::class,
     ], function () {
         Route::any('/', 'account')->name('account');
+        Route::any('/edit', 'editAccount')->name('editAccount');
     });
 });

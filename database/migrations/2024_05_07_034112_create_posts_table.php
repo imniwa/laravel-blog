@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('content');
             $table->timestamps();
 
-            $table->foreignId('users_id');
+            $table->foreignId('users_id')->constrained()->noActionOnDelete()->noActionOnUpdate();
         });
     }
 

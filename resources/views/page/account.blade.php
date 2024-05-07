@@ -58,8 +58,18 @@
                     <td>{{ $item->username }}</td>
                     <td>{{ $item->role }}</td>
                     <td>
-                        <button type="submit">Edit</button>
-                        <button type="submit">Delete</button>
+                        <form name="edit" action="{{route('editAccount')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="PUT">
+                            <button type="submit" form="edit">Edit</button>
+                        </form>
+
+                        <form action="{{route('account')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

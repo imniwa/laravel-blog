@@ -21,12 +21,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
             'name' => 'admin',
             'email' => 'admin@example.com',
+            'role' => 'admin',
         ]);
         User::factory()->create([
             'username' => 'author',
             'password' => Hash::make('author'),
             'name' => 'author',
             'email' => 'author@example.com',
+            'role' => 'author',
         ]);
     }
 }
