@@ -42,4 +42,18 @@ class AccountController extends Controller
                 abort(404);
         }
     }
+
+    public function editAccount(Request $request){
+        switch ($request->method()){
+            case 'GET':
+                return redirect()->route('account');
+            case 'POST':
+                $data = User::where('id', $request->id)->first();
+                return view('page.edit-account', [
+                    'data' => $data
+                ]);
+            default:
+                abort(404);
+        }
+    }
 }

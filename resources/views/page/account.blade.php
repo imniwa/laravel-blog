@@ -58,10 +58,10 @@
                     <td>{{ $item->username }}</td>
                     <td>{{ $item->role }}</td>
                     <td>
-                        <form name="edit" action="{{route('editAccount')}}" method="POST">
+                        <form action="{{route('editAccount')}}" method="POST">
                             @csrf
-                            <input type="hidden" name="_method" value="PUT">
-                            <button type="submit" form="edit">Edit</button>
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <button type="submit">Edit</button>
                         </form>
 
                         <form action="{{route('account')}}" method="POST">
