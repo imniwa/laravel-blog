@@ -52,6 +52,20 @@ class AccountController extends Controller
                 return view('page.edit-account', [
                     'data' => $data
                 ]);
+            case 'PATCH':
+                $data = $request->only(['name', 'username', 'password', 'role']);
+                foreach ($data as $key => $value) {
+                    if(!$value){
+                        unset($data[$key]);
+                        continue;
+                    }
+                    if($key === 'password'){
+                        $data['password'] = Hash::make($data['password']);
+                    }
+                }
+                $user = User::where('username', $request->username)->first();
+                $user->update($data);
+                return redirect()->route('account');
             default:
                 abort(404);
         }

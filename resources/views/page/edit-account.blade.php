@@ -2,7 +2,7 @@
 @section('body')
 <div>
     <h1>Edit Account</h1>
-    <form action="{{ route('account') }}" method="POST">
+    <form action="{{ route('editAccount') }}" method="POST">
         <input type="hidden" name="_method" value="PATCH">
         @csrf
         <table>
